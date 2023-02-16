@@ -1,24 +1,42 @@
 import turtle
+import random
+     
+doe = turtle.Turtle()
+doe.speed(20)
 
+def starfill(n,dlina):
+    doe.left(random.randint(10,340))
+    doe.begin_fill()
+    if n %2 != 0:
+        for i in range(n):
+            doe.forward(dlina)
+            angle = n//2 * 360 /n
+            doe.left(angle)
+    doe.end_fill()
 
+doe.color("yellow")
+doe.hideturtle()
+window = turtle.Screen()
+window.bgcolor("black")
+window.setup(700,500)
+for i in range(50):
+    x = random.randint(-320,320)    
+    y = random.randint(-220,220)
+    doe.up()
+    doe.setposition(x,y)
+    doe.down()
+    size = random.randint(10,20)
+    ize = random.choice([4,5,6,7,8,9,10])
+    starfill(ize,size)
 
-joe = turtle.Turtle()
-joe.color('red')
-colors = ['red','brown','green','blue']
-joe.speed(30)
+def mv(x,y):
+    doe.up()
+    doe.setposition(x,y)
+    doe.down()
+    size = random.randint(10,20)
+    ize = random.choice([4,5,6,7,8,9,10])
+    starfill(ize,size)
 
-def sq(a):
-    for i in range(4):
-        joe.forward(++a)
-        joe.left(90)
-
-dlina = 40
-for i in range(100):
-    joe.color(colors[i%4])
-    sq(dlina)
-    joe.right(10)
-    dlina=dlina+5
-
-
-
-
+window.onclick(mv)
+window.listen()
+window.mainloop()
